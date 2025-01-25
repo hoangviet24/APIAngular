@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Angular\\API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\api\\api\\models\\uploadhandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\models\\uploadhandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\api\\api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\api\\api\\models\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\models\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\api\\api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\api\\api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\api\\api\\models\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\models\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\api\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +54,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "Api",
+              "DocumentMoniker": "D:\\Angular\\API\\Api\\Api.csproj",
+              "RelativeDocumentMoniker": "Api\\Api.csproj",
+              "ToolTip": "D:\\Angular\\API\\Api\\Api.csproj",
+              "RelativeToolTip": "Api\\Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-25T10:52:21.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "UpdateUserDto.cs",
               "DocumentMoniker": "D:\\Angular\\API\\Api\\Models\\UpdateUserDto.cs",
               "RelativeDocumentMoniker": "Api\\Models\\UpdateUserDto.cs",
@@ -66,11 +79,12 @@
               "RelativeToolTip": "Api\\Models\\UpdateUserDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T03:51:11.593Z"
+              "WhenOpened": "2025-01-25T03:51:11.593Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "D:\\Angular\\API\\Api\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Api\\Repository\\UserRepository.cs",
@@ -78,12 +92,11 @@
               "RelativeToolTip": "Api\\Repository\\UserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T02:02:29.165Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-25T02:02:29.165Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Angular\\API\\Api\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\UserController.cs",
@@ -107,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "D:\\Angular\\API\\Api\\Repository\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Api\\Repository\\IUserRepository.cs",
@@ -164,19 +177,6 @@
               "ViewState": "AgIAAAMAAAAAAAAAAIBJwCIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-21T01:57:58.25Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UploadHandle.cs",
-              "DocumentMoniker": "D:\\Angular\\API\\Api\\Models\\UploadHandle.cs",
-              "RelativeDocumentMoniker": "Api\\Models\\UploadHandle.cs",
-              "ToolTip": "D:\\Angular\\API\\Api\\Models\\UploadHandle.cs",
-              "RelativeToolTip": "Api\\Models\\UploadHandle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T01:57:54.42Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
