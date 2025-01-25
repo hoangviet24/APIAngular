@@ -14,7 +14,7 @@
             long size = file.Length;
             if (size > 5 * 1024 * 1024)
             {
-                return "Maximum file size can be 5MB";
+                return "Maximum file size can be 5MB"+size;
             }
 
             // Lấy tên tệp gốc và loại bỏ các ký tự không hợp lệ

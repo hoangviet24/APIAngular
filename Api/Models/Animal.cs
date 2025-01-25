@@ -1,4 +1,6 @@
-﻿namespace Api.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Api.Models
 {
     public class Animal
     {

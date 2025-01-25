@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAnimalRepository,AnimalRepository>();
+builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddCors();
 builder.Services.AddCors(options =>
 {
