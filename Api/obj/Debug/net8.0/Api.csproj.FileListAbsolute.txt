@@ -288,3 +288,4 @@ D:\Angular\API\Api\obj\Debug\net8.0\refint\Api.dll
 D:\Angular\API\Api\obj\Debug\net8.0\Api.pdb
 D:\Angular\API\Api\obj\Debug\net8.0\Api.genruntimeconfig.cache
 D:\Angular\API\Api\obj\Debug\net8.0\ref\Api.dll
+D:\Angular\API\Api\bin\Debug\net8.0\AutoMapper.dll

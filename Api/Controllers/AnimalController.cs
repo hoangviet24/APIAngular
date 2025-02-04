@@ -15,18 +15,30 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAll")]
-        public IActionResult Filtering([FromQuery] string? name)
+        public IActionResult Filtering([FromQuery] string? name,int page =1, int pageSize = 10)
         {
             try
             {
-                var post = _animal.GetAnimalByName(name);
-                return Ok(post);
+                var totalCount = _animal.GetAnimalByName(name).Count();
+                var AnimalPerPage = _animal.GetAnimalByName(name)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+                return Ok(AnimalPerPage);
             }
             catch
             {
-                var post = _animal.GetAllAnimals();
-                return Ok(post);
+                var totalCount = _animal.GetAllAnimals().Count();
+                var AnimalPerPage = _animal.GetAllAnimals()
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+                return Ok(AnimalPerPage);
             }
+        }
+        [HttpGet("GetTotal")]
+        public IActionResult GetTotal() {
+            return Ok(_animal.GetAllAnimals().Count());
         }
         [HttpPost("Post-file")]
         public IActionResult UploadFile(IFormFile file) {
@@ -70,16 +82,6 @@ namespace Api.Controllers
             return Ok(new { message = "File deleted successfully." });
         }
 
-        [HttpGet("Get-Page")]
-        public IActionResult GetPaging(int page = 1, int pagesize = 5)
-        {
-            var totalCount = _animal.GetAllAnimals().Count();
-            var AnimalPerPage = _animal.GetAllAnimals()
-                .Skip((page - 1) * pagesize)
-                .Take(pagesize)
-                .ToList();
-            return Ok(AnimalPerPage);
-        }
         [HttpPost("Add")]
         public IActionResult Post([FromBody] AddAnimalDto animal) {
             var post = _animal.AddAnimal(animal);
@@ -95,6 +97,10 @@ namespace Api.Controllers
         public IActionResult Delete(int id) {
             var delete = _animal.Delete(id);
             return Ok(delete);
+        }
+        [HttpGet("Type")]
+        public IActionResult GetType(string type) {
+            return Ok(_animal.GetAnimalByType(type));
         }
     }
 }

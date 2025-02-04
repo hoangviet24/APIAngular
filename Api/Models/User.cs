@@ -1,4 +1,7 @@
-﻿namespace Api.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace Api.Models
 {
     public class User
     {

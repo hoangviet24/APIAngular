@@ -14,7 +14,7 @@ namespace Api.Controllers
         public UserController(IUserRepository userRepository) {
             _userRepository = userRepository;
         }
-        [HttpPost]
+        [HttpPost("Post")]
         public IActionResult CreateUser(UserDto user)
         {
             return Ok( _userRepository.CreateUser(user));

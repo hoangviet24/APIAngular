@@ -1,10 +1,12 @@
 ﻿using Api.Data;
 using Api.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace Api.Repository
 {
-    public class AnimalRepository:IAnimalRepository
+    public class AnimalRepository : IAnimalRepository
     {
         private readonly DataContext _context;
         public AnimalRepository(DataContext context) {
@@ -13,17 +15,18 @@ namespace Api.Repository
 
         public List<Animal> GetAnimalByName(string name)
         {
-            var putId = _context.Animals.Where(a => a.Name.ToLower().Contains(name.ToLower()));
-            return putId.ToList();
+            var getname = _context.Animals.Where(a => a.Name.ToLower().Contains(name.ToLower()));
+            return getname.ToList();
         }
+
 
         AddAnimalDto IAnimalRepository.AddAnimal(AddAnimalDto animal)
         {
-            var add = new Animal
+            var add = new Animal()
             {
                 Name = animal.Name,
-                Description = animal.Description,
                 Type = animal.Type,
+                Description = animal.Description,
                 img = animal.img
             };
             _context.Animals.Add(add);
@@ -42,10 +45,11 @@ namespace Api.Repository
             return putId;
         }
 
-        List<Animal> IAnimalRepository.GetAllAnimals()
+        public List<Animal> GetAllAnimals()
         {
             return _context.Animals.ToList();
         }
+
 
         Animal IAnimalRepository.GetAnimalById(int id)
         {
@@ -60,11 +64,17 @@ namespace Api.Repository
             {
                 putId.Name = animal.Name;
                 putId.Description = animal.Description;
-                putId.Type = animal.Type;   
+                putId.Type = animal.Type;
                 putId.img = animal.img;
                 _context.SaveChanges();
             }
             return animal;
+        }
+
+        public List<Animal> GetAnimalByType(string type)
+        {
+            var getType = _context.Animals.Where(x=> x.Type == type).ToList();
+            return getType;
         }
     }
 }

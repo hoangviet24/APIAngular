@@ -4,11 +4,12 @@ namespace Api.Repository
 {
     public interface IAnimalRepository
     {
-        List<Animal > GetAllAnimals();
+        List<Animal> GetAllAnimals();
         Animal GetAnimalById(int id);
-        List< Animal >GetAnimalByName(string name);
+        List<Animal>GetAnimalByName(string name);
         AddAnimalDto AddAnimal(AddAnimalDto animal);
         AddAnimalDto PutAnimal(int id, AddAnimalDto animal);
+        List<Animal> GetAnimalByType(string type);  
         Animal Delete(int id);
     }
 }

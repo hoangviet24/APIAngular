@@ -19,7 +19,6 @@ namespace Api.Repository
             return getName.ToList();
         }
 
-        
         public User Login(string user, string pass)
         {
             var UserName = _context.Users.FirstOrDefault(x=>x.UserName == user);
@@ -32,15 +31,31 @@ namespace Api.Repository
 
         UserDto IUserRepository.CreateUser(UserDto user)
         {
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
-            var userDto = new User()
+            try
             {
-                UserName = user.UserName,
-                Password = hashedPassword,  
-            };
-            _context.Users.Add(userDto);
-            _context.SaveChanges();
-            return user;
+                var getName = _context.Users.FirstOrDefault(x => x.UserName == user.UserName);
+                if (getName != null)
+                {
+                    throw new Exception("Username đã tồn tại");
+                }
+
+                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                var userEntity = new User()
+                {
+                    UserName = user.UserName,
+                    Password = hashedPassword,
+                };
+
+                _context.Users.Add(userEntity);
+                _context.SaveChanges();
+
+                return user;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi: {ex.Message}");
+                return null;
+            }
         }
 
         User IUserRepository.Delete(int id)

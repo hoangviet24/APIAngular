@@ -17,7 +17,37 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Animal/GetTotal": {
+      "get": {
+        "tags": [
+          "Animal"
         ],
         "responses": {
           "200": {
@@ -91,38 +121,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Animal/Get-Page": {
-      "get": {
-        "tags": [
-          "Animal"
-        ],
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pagesize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 5
             }
           }
         ],
@@ -227,7 +225,28 @@
         }
       }
     },
-    "/api/User": {
+    "/api/Animal/Type": {
+      "get": {
+        "tags": [
+          "Animal"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/Post": {
       "post": {
         "tags": [
           "User"
@@ -256,7 +275,9 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/User": {
       "delete": {
         "tags": [
           "User"

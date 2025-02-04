@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
     {
-        policy.WithOrigins("http://localhost:7055") // Thay đổi URL cho phù hợp
+        policy.WithOrigins("https://localhost:7055") // Thay đổi URL cho phù hợp
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -30,7 +30,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
 app.UseCors(options =>
     options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
