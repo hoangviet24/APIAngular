@@ -13,6 +13,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAnimalRepository,AnimalRepository>();
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddCors();
+builder.Services.AddMemoryCache();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
@@ -34,7 +36,7 @@ app.UseHttpsRedirection();
 app.UseCors(options =>
     options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.UseAuthorization();
-
+app.UseCors("AllowAngularApp");
 app.MapControllers();
 
 app.Run();

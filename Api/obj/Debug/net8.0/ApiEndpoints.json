@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Api.Controllers.AnimalController",
+    "Method": "GetId",
+    "RelativePath": "api/Animal/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.AnimalController",
     "Method": "Post",
     "RelativePath": "api/Animal/Add",
     "HttpMethod": "POST",
@@ -95,8 +111,23 @@
         "Name": "file",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
+      },
+      {
+        "Name": "customFileName",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.AnimalController",
+    "Method": "GetRandom",
+    "RelativePath": "api/Animal/Random",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -148,6 +179,38 @@
         "Name": "fileName",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.FavController",
+    "Method": "Get",
+    "RelativePath": "api/Fav/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Uid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.FavController",
+    "Method": "Post",
+    "RelativePath": "api/Fav/Post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "favDto",
+        "Type": "Api.Models.AddFavDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -249,15 +312,20 @@
   },
   {
     "ContainingType": "Api.Controllers.UserController",
-    "Method": "Put",
-    "RelativePath": "api/User/Update",
-    "HttpMethod": "PUT",
+    "Method": "ResetPassword",
+    "RelativePath": "api/User/ResetPassword",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
-        "Type": "System.Int32",
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "oldPass",
+        "Type": "System.String",
         "IsRequired": false
       },
       {

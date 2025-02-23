@@ -3,14 +3,19 @@ using Api.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Api.Repository
 {
     public class AnimalRepository : IAnimalRepository
     {
         private readonly DataContext _context;
-        public AnimalRepository(DataContext context) {
+        private readonly IMemoryCache _cache;
+        private readonly string cacheKey = "ShuffledAnimals";
+        private readonly TimeSpan cacheDuration = TimeSpan.FromHours(24);
+        public AnimalRepository(DataContext context,IMemoryCache cache) {
             _context = context;
+            _cache = cache;
         }
 
         public List<Animal> GetAnimalByName(string name)
@@ -47,7 +52,7 @@ namespace Api.Repository
 
         public List<Animal> GetAllAnimals()
         {
-            return _context.Animals.ToList();
+            return _context.Animals.OrderBy(a => Guid.NewGuid()).ToList();
         }
 
 
@@ -71,10 +76,20 @@ namespace Api.Repository
             return animal;
         }
 
-        public List<Animal> GetAnimalByType(string type)
+        public List<Animal> GetAnimalByType(string type,int count = 20)
         {
-            var getType = _context.Animals.Where(x=> x.Type == type).ToList();
-            return getType;
+            var getType = _context.Animals.Where(x=> x.Type == type);
+            return getType.Take(count).ToList();
+        }
+
+        public List<Animal> GetAllRandomAnimals(int count = 10)
+        {
+            if (!_cache.TryGetValue(cacheKey, out List<Animal> animals))
+            {
+                animals = _context.Animals.OrderBy(a => Guid.NewGuid()).Take(count).ToList();
+                _cache.Set(cacheKey, animals, cacheDuration);
+            }
+            return animals;
         }
     }
 }

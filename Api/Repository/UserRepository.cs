@@ -2,6 +2,7 @@
 using Api.Models;
 using Azure.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Repository
 {
@@ -34,20 +35,24 @@ namespace Api.Repository
             try
             {
                 var getName = _context.Users.FirstOrDefault(x => x.UserName == user.UserName);
-                if (getName != null)
+                if (getName == null)
                 {
-                    throw new Exception("Username đã tồn tại");
+                    var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                    var userEntity = new User()
+                    {
+                        UserName = user.UserName,
+                        Password = hashedPassword,
+                    };
+
+                    _context.Users.Add(userEntity);
+                    _context.SaveChanges();
+
                 }
-
-                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
-                var userEntity = new User()
+                else
                 {
-                    UserName = user.UserName,
-                    Password = hashedPassword,
-                };
-
-                _context.Users.Add(userEntity);
-                _context.SaveChanges();
+                    throw new InvalidOperationException("Tài khoản đã tồn tại");
+                }
+         
 
                 return user;
             }
@@ -79,16 +84,27 @@ namespace Api.Repository
             return _context.Users.Find(id);
         }
 
-        UpdateUserDto IUserRepository.UpdateUser(UpdateUserDto user, int Id)
+        //update user
+        //b1: Người dùng nhập email và password, để tìm xem có tài khoản không
+        //b2: Nếu có sẽ bắt đầu nhập mật khẩu mới, và lưu vào db
+        public UpdateUserDto ResetPassword(UpdateUserDto user, string oldPass, string email)
         {
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
-            var getId = _context.Users.FirstOrDefault(x => x.Id == Id);
-            if (getId != null)
+            // Tìm user trong database theo email
+            var userEntity = _context.Users.FirstOrDefault(x => x.UserName == email);
+
+            if (userEntity != null && BCrypt.Net.BCrypt.Verify(oldPass, userEntity.Password))
             {
-                getId.Password = hashedPassword;
+                // Mã hóa mật khẩu mới
+                userEntity.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
+                // Cập nhật user vào database
+                _context.Users.Update(userEntity);
                 _context.SaveChanges();
+
+                return user;
             }
-            return user;
+
+            return null; // Sai mật khẩu hoặc user không tồn tại
         }
     }
 }

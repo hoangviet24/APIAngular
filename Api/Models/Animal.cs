@@ -9,5 +9,6 @@ namespace Api.Models
         public string? Description { get; set; }
         public string? Type { get; set; }
         public string? img {  get; set; }
+        public List<Favorite>? Favorite { get; set; }
     }
 }

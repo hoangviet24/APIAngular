@@ -2,6 +2,7 @@
 using Api.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace Api.Controllers
 {
@@ -14,6 +15,11 @@ namespace Api.Controllers
             _animal = animal;
         }
 
+        [HttpGet("Random")]
+        public IActionResult GetRandom()
+        {
+            return Ok(_animal.GetAllRandomAnimals(10));
+        }
         [HttpGet("GetAll")]
         public IActionResult Filtering([FromQuery] string? name,int page =1, int pageSize = 10)
         {
@@ -40,9 +46,15 @@ namespace Api.Controllers
         public IActionResult GetTotal() {
             return Ok(_animal.GetAllAnimals().Count());
         }
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult GetId(int id) {
+            return Ok(_animal.GetAnimalById(id));
+        }
         [HttpPost("Post-file")]
-        public IActionResult UploadFile(IFormFile file) {
-            return Ok( new UploadHandle().Upload(file));
+        public IActionResult UploadFile( IFormFile file, [FromForm] string? customFileName)
+        {
+            return Ok(new UploadHandle().Upload(file,customFileName));
         }
         [HttpGet("view-file")]
         public IActionResult ViewFile(string? fileName)
@@ -52,20 +64,29 @@ namespace Api.Controllers
             if (!Directory.Exists(uploadPath))
                 return NotFound("Uploads directory does not exist.");
 
-            if (!string.IsNullOrEmpty(fileName))
-            {
-                var filePath = Path.Combine(uploadPath, fileName);
-                if (!System.IO.File.Exists(filePath))
-                    return NotFound("File does not exist.");
+            var files = Directory.GetFiles(uploadPath).Select(Path.GetFileName).ToList();
 
-                var fileBytes = System.IO.File.ReadAllBytes(filePath);
-                var contentType = "image/" + Path.GetExtension(fileName).TrimStart('.');
-                return File(fileBytes, contentType);
+            // Nếu không nhập fileName, trả về danh sách file
+            if (string.IsNullOrEmpty(fileName))
+                return Ok(files);
+
+            // Tìm file có chứa từ khóa tìm kiếm (không phân biệt hoa thường)
+            var matchedFile = files.FirstOrDefault(f => f.IndexOf(fileName, StringComparison.OrdinalIgnoreCase) >= 0);
+
+            if (matchedFile == null)
+                return NotFound("No matching file found.");
+
+            var filePath = Path.Combine(uploadPath, matchedFile);
+
+            // Lấy contentType chính xác
+            var provider = new FileExtensionContentTypeProvider();
+            if (!provider.TryGetContentType(filePath, out string? contentType))
+            {
+                contentType = "application/octet-stream"; // Loại file không xác định
             }
 
-            // Trả danh sách file nếu không có fileName
-            var files = Directory.GetFiles(uploadPath).Select(Path.GetFileName).ToList();
-            return Ok(files);
+            var fileBytes = System.IO.File.ReadAllBytes(filePath);
+            return File(fileBytes, contentType);
         }
         [HttpDelete("delete/{fileName}")]
         public IActionResult DeleteFile(string fileName)
@@ -100,7 +121,7 @@ namespace Api.Controllers
         }
         [HttpGet("Type")]
         public IActionResult GetType(string type) {
-            return Ok(_animal.GetAnimalByType(type));
+            return Ok(_animal.GetAnimalByType(type,20));
         }
     }
 }

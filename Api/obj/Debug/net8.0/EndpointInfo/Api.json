@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Animal/Random": {
+      "get": {
+        "tags": [
+          "Animal"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Animal/GetAll": {
       "get": {
         "tags": [
@@ -56,6 +68,29 @@
         }
       }
     },
+    "/api/Animal/{id}": {
+      "get": {
+        "tags": [
+          "Animal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Animal/Post-file": {
       "post": {
         "tags": [
@@ -70,11 +105,17 @@
                   "file": {
                     "type": "string",
                     "format": "binary"
+                  },
+                  "customFileName": {
+                    "type": "string"
                   }
                 }
               },
               "encoding": {
                 "file": {
+                  "style": "form"
+                },
+                "customFileName": {
                   "style": "form"
                 }
               }
@@ -246,6 +287,59 @@
         }
       }
     },
+    "/api/Fav/Post": {
+      "post": {
+        "tags": [
+          "Fav"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddFavDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddFavDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddFavDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Fav/GetAll": {
+      "get": {
+        "tags": [
+          "Fav"
+        ],
+        "parameters": [
+          {
+            "name": "Uid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User/Post": {
       "post": {
         "tags": [
@@ -352,18 +446,24 @@
         }
       }
     },
-    "/api/User/Update": {
-      "put": {
+    "/api/User/ResetPassword": {
+      "post": {
         "tags": [
           "User"
         ],
         "parameters": [
           {
-            "name": "Id",
+            "name": "email",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
+            }
+          },
+          {
+            "name": "oldPass",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -469,6 +569,20 @@
           "img": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddFavDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "animalId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
