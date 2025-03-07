@@ -100,7 +100,6 @@ namespace Api.Repository
                 // Cập nhật user vào database
                 _context.Users.Update(userEntity);
                 _context.SaveChanges();
-
                 return user;
             }
 

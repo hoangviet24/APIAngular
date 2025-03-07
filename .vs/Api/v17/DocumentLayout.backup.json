@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\Angular\\APIAngular\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\apiangular\\api\\repository\\ianimalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\repository\\ianimalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\apiangular\\api\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\apiangular\\api\\controllers\\animalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\controllers\\animalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\apiangular\\api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|d:\\angular\\apiangular\\api\\repository\\animalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84FA9454-F56F-47B7-B449-F0C9B46AAD02}|Api\\Api.csproj|solutionrelative:api\\repository\\animalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,15 +34,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IAnimalRepository.cs",
-              "DocumentMoniker": "D:\\Angular\\APIAngular\\Api\\Repository\\IAnimalRepository.cs",
-              "RelativeDocumentMoniker": "Api\\Repository\\IAnimalRepository.cs",
-              "ToolTip": "D:\\Angular\\APIAngular\\Api\\Repository\\IAnimalRepository.cs",
-              "RelativeToolTip": "Api\\Repository\\IAnimalRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AnimalRepository.cs",
+              "DocumentMoniker": "D:\\Angular\\APIAngular\\Api\\Repository\\AnimalRepository.cs",
+              "RelativeDocumentMoniker": "Api\\Repository\\AnimalRepository.cs",
+              "ToolTip": "D:\\Angular\\APIAngular\\Api\\Repository\\AnimalRepository.cs",
+              "RelativeToolTip": "Api\\Repository\\AnimalRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T09:25:56.371Z",
+              "WhenOpened": "2025-03-02T08:13:23.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Angular\\APIAngular\\Api\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Api\\Repository\\UserRepository.cs",
+              "ToolTip": "D:\\Angular\\APIAngular\\Api\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "Api\\Repository\\UserRepository.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAowGQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T07:35:39.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ContactController.cs",
+              "DocumentMoniker": "D:\\Angular\\APIAngular\\Api\\Controllers\\ContactController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\ContactController.cs",
+              "ToolTip": "D:\\Angular\\APIAngular\\Api\\Controllers\\ContactController.cs",
+              "RelativeToolTip": "Api\\Controllers\\ContactController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T02:31:31.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AnimalController.cs",
+              "DocumentMoniker": "D:\\Angular\\APIAngular\\Api\\Controllers\\AnimalController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\AnimalController.cs",
+              "ToolTip": "D:\\Angular\\APIAngular\\Api\\Controllers\\AnimalController.cs",
+              "RelativeToolTip": "Api\\Controllers\\AnimalController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA3wCEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T06:25:20.756Z",
               "EditorCaption": ""
             }
           ]

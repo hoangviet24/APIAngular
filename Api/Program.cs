@@ -12,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAnimalRepository,AnimalRepository>();
 builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IContactRepository,ContactRepository>();
 builder.Services.AddCors();
 builder.Services.AddMemoryCache();
 

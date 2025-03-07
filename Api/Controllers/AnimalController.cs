@@ -1,6 +1,5 @@
 ﻿using Api.Models;
 using Api.Repository;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 
@@ -23,7 +22,7 @@ namespace Api.Controllers
         [HttpGet("GetAll")]
         public IActionResult Filtering([FromQuery] string? name,int page =1, int pageSize = 10)
         {
-            try
+            if(name != null)
             {
                 var totalCount = _animal.GetAnimalByName(name).Count();
                 var AnimalPerPage = _animal.GetAnimalByName(name)
@@ -32,7 +31,7 @@ namespace Api.Controllers
                     .ToList();
                 return Ok(AnimalPerPage);
             }
-            catch
+            else
             {
                 var totalCount = _animal.GetAllAnimals().Count();
                 var AnimalPerPage = _animal.GetAllAnimals()
